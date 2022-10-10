@@ -1,6 +1,8 @@
 package com.example.demomybatis.controller;
 
 import com.example.demomybatis.model.dao.mapper.MUser;
+import com.google.gson.Gson;
+import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +16,11 @@ public class UserController {
     private MUser userMapper;
 
     @GetMapping(value = "/test")
-    public String getUserList(@RequestParam Integer id) {
-        System.out.println(userMapper.findById(id));
-        return "success";
+    public String getUserList(@RequestParam int id) {
+        Gson gson = new Gson();
+        String result = gson.toJson(userMapper.findAllId());
+
+        System.out.println(userMapper.findAllId());
+        return result;
     }
 }

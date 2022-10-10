@@ -1,10 +1,10 @@
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS people;
 
-CREATE TABLE user
+CREATE TABLE people
 (
-    id    BIGINT(20)  NOT NULL COMMENT '主键ID',
+    id    integer     NOT NULL COMMENT '主键ID',
     name  VARCHAR(30) NULL DEFAULT NULL COMMENT '姓名',
-    age   INT(11)     NULL DEFAULT NULL COMMENT '年龄',
+    age   integer     NULL DEFAULT NULL COMMENT '年龄',
     email VARCHAR(50) NULL DEFAULT NULL COMMENT '邮箱',
     PRIMARY KEY (id)
 );
